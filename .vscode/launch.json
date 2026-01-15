@@ -8,7 +8,7 @@
             "name": "typesafe_firebase_functions (Chrome)",
             "request": "launch",
             "type": "dart",
-            "program": "typesafe_firebase_function/lib/main.dart",
+            "program": "typesafe_firebase_functions_example/lib/main.dart",
             "args": [
                 "-d",
                 "chrome"
@@ -16,24 +16,15 @@
             "flutterMode": "debug"
         },
         {
-            "name": "typesafe_firebase_functions",
-            "cwd": "typesafe_firebase_functions",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "typesafe_firebase_functions (profile mode)",
-            "cwd": "typesafe_firebase_functions",
+            "name": "typesafe_firebase_firestore (Chrome)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "program": "typesafe_firebase_firestore_example/lib/main.dart",
+            "args": [
+                "-d",
+                "chrome"
+            ],
+            "flutterMode": "debug"
         },
-        {
-            "name": "typesafe_firebase_functions (release mode)",
-            "cwd": "typesafe_firebase_functions",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
-        }
     ]
 }

@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:typesafe_firebase_core/typesafe_firebase.dart';
-import 'package:typesafe_firebase_examples/functions/functions_example.dart';
-import 'package:typesafe_firebase_examples/register_models.g.dart';
+import 'package:typesafe_firebase_functions_example/functions/functions_example.dart';
+import 'package:typesafe_firebase_functions_example/register_models.g.dart';
 
 void main() {
   const FirebaseOptions options = FirebaseOptions(
