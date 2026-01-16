@@ -2,12 +2,12 @@
 // *    GENERATED CODE - DO NOT MODIFY    *
 // ****************************************
 
-import "package:typesafe_firebase_core/models.dart";
-import "package:typesafe_firebase_firestore_example/firestore/models.dart";
+import "package:typesafe_firebase_core/models.dart" as $import0;
+import 'package:typesafe_firebase_firestore_example/firestore/models.dart' as $import1;
 
 void registerAllModels() {
-  registerCommonModels();
+  $import0.registerCommonModels();
 
-  $register_$UserProfile_type();
-  $register_$AuditTrailEntry_type();
+  $import1.$register_$UserProfile_type();
+  $import1.$register_$AuditTrailEntry_type();
 }

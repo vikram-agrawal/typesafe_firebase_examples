@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 part of 'models.dart';
 
@@ -6,17 +7,15 @@ part of 'models.dart';
 // ModelGenerator
 // **************************************************************************
 
-//IMPORT: package:typesafe_firebase_examples/functions/models.dart
-//==BaseModel.register<UserProfile>(
-//==  toJson: UserProfileToJson,
-//==  fromJson: UserProfileFromJson,
-//==);
+// IMPORT: package:typesafe_firebase_functions_example/functions/models.dart
 
-// ignore: constant_identifier_names
-const UserProfileFromJson = _$UserProfileFromJson;
-
-// ignore: constant_identifier_names
-const UserProfileToJson = _$UserProfileToJson;
+// ignore: non_constant_identifier_names
+void $register_$UserProfile_type() {
+  BaseModel.register<UserProfile>(
+    toJson: _$UserProfileToJson,
+    fromJson: _$UserProfileFromJson,
+  );
+}
 
 // **************************************************************************
 // JsonSerializableGenerator
