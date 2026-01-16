@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:typesafe_firebase_core/models/common_models.dart';
 import 'package:typesafe_firebase_core/typesafe_firebase.dart';
+import 'package:typesafe_firebase_functions_example/functions/api_service.dart';
 import 'package:typesafe_firebase_functions_example/functions/functions_example.dart';
 import 'package:typesafe_firebase_functions_example/register_models.g.dart';
 
@@ -45,6 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _userIdController = TextEditingController();
 
   String _userName = "No user fetched yet";
+  String _streamData = "";
 
   void _fetchUserName() async {
     String input = _userIdController.text.trim();
@@ -60,6 +63,26 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _fetchStream() async {
+    setState(() {
+      _streamData = "";
+    });
+
+    StreamApiService().stream.listen(
+      VoidData(),
+      handlePartialData: (data) => {
+        setState(() {
+          _streamData += " ${data.value}";
+        }),
+      },
+      handleResultData: (data) => {
+        setState(() {
+          _streamData += " : ${data.value}";
+        }),
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,32 +91,53 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          children: [
-            // Input view for User ID
-            TextField(
-              controller: _userIdController,
-              decoration: const InputDecoration(
-                labelText: "Enter User ID",
-                border: OutlineInputBorder(),
+        child: Padding(
+          padding: EdgeInsets.all(50),
+          child: Column(
+            children: [
+              // Input view for User ID
+              TextField(
+                controller: _userIdController,
+                decoration: const InputDecoration(
+                  labelText: "Enter User ID",
+                  border: OutlineInputBorder(),
+                ),
               ),
-              keyboardType: TextInputType.number,
-            ),
-            const SizedBox(height: 20),
+              const SizedBox(height: 20),
 
-            // Button to trigger fetch
-            ElevatedButton(
-              onPressed: _fetchUserName,
-              child: const Text("Fetch User Name"),
-            ),
-            const SizedBox(height: 30),
+              // Button to trigger fetch
+              ElevatedButton(
+                onPressed: _fetchUserName,
+                child: const Text("Fetch User Name"),
+              ),
+              const SizedBox(height: 30),
 
-            // Display view for User Name
-            Text(
-              _userName,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-          ],
+              // Display view for User Name
+              Text(
+                _userName,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              const SizedBox(height: 50),
+
+              // Button to get stream
+              ElevatedButton(
+                onPressed: _fetchStream,
+                child: const Text("Fetch Stream"),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                _streamData,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

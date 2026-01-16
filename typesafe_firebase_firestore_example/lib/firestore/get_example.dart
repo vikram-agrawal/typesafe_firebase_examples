@@ -46,7 +46,7 @@ class _GetUserState extends State<GetUserWidget> {
           TextField(
             controller: _userNameController,
             decoration: const InputDecoration(
-              labelText: "Enter User Name",
+              labelText: "Enter Doc Id",
               border: OutlineInputBorder(),
             ),
             keyboardType: TextInputType.number,
@@ -54,7 +54,7 @@ class _GetUserState extends State<GetUserWidget> {
           const SizedBox(height: 20),
 
           // Button to trigger fetch
-          ElevatedButton(onPressed: _addUser, child: const Text("Add User")),
+          ElevatedButton(onPressed: _addUser, child: const Text("Get User")),
           const SizedBox(height: 30),
 
           // Display view for User Name
