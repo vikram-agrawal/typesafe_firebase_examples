@@ -7,8 +7,7 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-import { logger, setGlobalOptions } from "firebase-functions";
-import { onCall, CallableRequest, CallableResponse } from "firebase-functions/v2/https";
+import { setGlobalOptions } from "firebase-functions";
 import express from "express";
 import { userRouter } from "./user";
 import { onRequest } from "firebase-functions/https";
@@ -41,24 +40,3 @@ app.use(express.json());
 app.use("/user", userRouter);
 
 export const userClient = onRequest({ region: "asia-south1" }, app);
-
-export const streamClient = onCall(async (req: CallableRequest, res?: CallableResponse) => {
-  logger.info("/streamClient called.");
-  const words = ["Sending", "'Hello!'", "from", "streaming", "server."];
-  let totalLength = 0;
-
-  for (const word of words) {
-    // Simulate asynchronous work
-    await new Promise((resolve) => setTimeout(resolve, 500));
-
-    // Send incremental chunk
-    res!.sendChunk({ Value: word });
-    logger.info(`Chunk sent: ${word}`);
-    totalLength += word.length;
-  }
-
-  // Explicitly return the final result object
-  return JSON.stringify({
-    Value: totalLength
-  });
-});

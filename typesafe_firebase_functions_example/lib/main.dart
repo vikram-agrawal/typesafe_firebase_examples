@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
       _streamData = "";
     });
 
-    StreamApiService().stream.listen(
+    ExampleApiService().stream.listen(
       VoidData(),
       handlePartialData: (data) => {
         setState(() {

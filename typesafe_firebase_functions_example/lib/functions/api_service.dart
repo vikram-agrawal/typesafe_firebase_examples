@@ -6,10 +6,6 @@ class ExampleApiService extends FirebaseFunctionsService {
   ExampleApiService() : super(prefix: "userClient/user", region: "asia-south1");
 
   late final load = createFunction<StringData, UserProfile>("/load");
-}
 
-class StreamApiService extends FirebaseFunctionsService {
-  late final stream = createStream<VoidData, StringData, IntData>(
-    "streamClient",
-  );
+  late final stream = createStream<VoidData, StringData, IntData>("/stream");
 }
