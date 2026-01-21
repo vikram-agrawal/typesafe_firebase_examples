@@ -2,7 +2,9 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:typesafe_firebase_core/typesafe_firebase.dart';
 import 'package:typesafe_firebase_firestore_example/firestore/add_example.dart';
+import 'package:typesafe_firebase_firestore_example/firestore/doc_changes_example.dart';
 import 'package:typesafe_firebase_firestore_example/firestore/get_example.dart';
+import 'package:typesafe_firebase_firestore_example/firestore/getall_example.dart';
 import 'package:typesafe_firebase_firestore_example/register_models.g.dart';
 
 void main() {
@@ -49,6 +51,8 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Widget> _pages = [
     Center(child: AddUserWidget()),
     Center(child: GetUserWidget()),
+    Center(child: GetAllWidget()),
+    Center(child: DocChangesWidget()),
   ];
 
   @override
@@ -70,6 +74,14 @@ class _MyHomePageState extends State<MyHomePage> {
           NavigationDestination(
             icon: Icon(Icons.account_circle),
             label: 'Get User',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.account_circle),
+            label: 'Get All',
+          ),
+          NavigationDestination(
+            icon: Icon(Icons.account_circle),
+            label: 'Doc Changes',
           ),
         ],
       ),

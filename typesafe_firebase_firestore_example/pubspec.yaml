@@ -11,8 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  typesafe_firebase_core: ^0.0.1
-  typesafe_firebase_firestore: ^0.0.1
+  typesafe_firebase_core: ^0.0.3
+  typesafe_firebase_firestore: ^0.0.3
   firebase_core: ^4.3.0
 
 dev_dependencies:
@@ -20,7 +20,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.10.4
-  typesafe_firebase_generator: ^0.0.1
+  typesafe_firebase_generator: ^0.0.4
   
   flutter_lints: ^6.0.0
 

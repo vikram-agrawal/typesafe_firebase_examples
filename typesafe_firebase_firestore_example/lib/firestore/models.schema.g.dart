@@ -20,7 +20,7 @@ final class UserDataStore extends $FirestoreDb {
 
 // ignore: camel_case_types
 final class $UserDataStore$UserProfiles$Doc extends $Document<UserProfile> {
-  $UserDataStore$UserProfiles$Doc(super.id, super.collection);
+  $UserDataStore$UserProfiles$Doc(super.id, super.collection, {super.data});
 
   // ignore: non_constant_identifier_names
   late final AuditTrail =
@@ -34,5 +34,9 @@ final class $UserDataStore$UserProfiles$Doc extends $Document<UserProfile> {
 // ignore: camel_case_types
 final class $UserDataStore$UserProfiles$AuditTrail$Doc
     extends $Document<AuditTrailEntry> {
-  $UserDataStore$UserProfiles$AuditTrail$Doc(super.id, super.collection);
+  $UserDataStore$UserProfiles$AuditTrail$Doc(
+    super.id,
+    super.collection, {
+    super.data,
+  });
 }

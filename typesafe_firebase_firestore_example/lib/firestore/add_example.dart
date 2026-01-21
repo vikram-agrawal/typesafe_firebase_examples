@@ -19,6 +19,14 @@ Future<String> addUser(String name) async {
   // Add document with specified id
   final entryDoc = await doc.AuditTrail.add(entry, "1");
 
+  final AuditTrailEntry entry2 = AuditTrailEntry();
+  entry2.uid = newUser.uid;
+  entry2.name = newUser.name;
+  entry2.modifiedAt = DateTime.now();
+  entry2.modifiedBy = "System2";
+
+  await doc.AuditTrail.add(entry2, "2");
+
   return "${doc.id} : ${entryDoc.id}";
 }
 
@@ -71,7 +79,7 @@ class _AddUserState extends State<AddUserWidget> {
           const SizedBox(height: 30),
 
           // Display view for User Name
-          Text(
+          SelectableText(
             _docId,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),

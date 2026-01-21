@@ -17,17 +17,16 @@ class GetUserWidget extends StatefulWidget {
 }
 
 class _GetUserState extends State<GetUserWidget> {
-  final TextEditingController _userNameController = TextEditingController();
+  final TextEditingController _docIdController = TextEditingController();
 
   String _userName = "No user fetched yet";
 
   void _addUser() async {
-    String input = _userNameController.text.trim();
+    String input = _docIdController.text.trim();
     String userName;
     if (input.isEmpty) {
       userName = "Please enter a User Name";
     } else {
-      // Replace this with an actual API call using the 'http' package
       userName = await getUser(input);
     }
     setState(() {
@@ -44,7 +43,7 @@ class _GetUserState extends State<GetUserWidget> {
         children: [
           // Input view for User ID
           TextField(
-            controller: _userNameController,
+            controller: _docIdController,
             decoration: const InputDecoration(
               labelText: "Enter Doc Id",
               border: OutlineInputBorder(),
